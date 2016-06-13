@@ -10,7 +10,7 @@
 
       .state('notes', {
         url: '/notes',
-        template: '<h1>Notely</h1><p>{{ message }}</p>',
+        template: '<h1>MegaNote</h1><p>{{ message }}</p>',
         controller: function($scope) {
           $scope.message = "Welcome to Notely!";
         }

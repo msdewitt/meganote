@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.5.0",
   "description": "A starter project for an AngularJS 1.4 note-taking app.",
-  "repository": "git@github.com/getfretless/notely-seed.git",
+  "repository": "https://github.com/msdewitt/meganote",
   "license": "MIT",
   "devDependencies": {
     "bower": "^1.7.9",
