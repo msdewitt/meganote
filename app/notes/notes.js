@@ -6,15 +6,20 @@ angular.module('meganote.notes',[
 
     .state('notes', {
       url: '/notes',
-      template: '<h1>MegaNote</h1><p>{{ message }}</p>',
-      controller: function($scope) {
-        $scope.message = "Welcome to Notely!";
-      }
-    });
+      templateUrl:'notes/notes.html' ,
+      controller: 'NotesController'
+    })
     .state('notes.form',{
-      url:'/:noteId',
-      templateURL : 'notes/notes-form.html';
+      url:'/:noteId', //noteId is a varaiable so this says: .../noteId
+      templateUrl : 'notes/notes-form.html'
     });
-}
-.controller('NotesController',function(){
+})
+.controller('NotesController',function($scope){
+
+  $scope.notes = [];
+  $scope.note = {title:'', body:''};
+  $scope.save = function(){
+    $scope.notes.push($scope.note);
+    $scope.note ={title:'', body:''};
+  }
 });
