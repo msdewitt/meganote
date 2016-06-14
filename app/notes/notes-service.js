@@ -8,10 +8,12 @@ angular.module('meganote.notes')
 
 
     service.getNotes = function(){
-      $http.get('https://meganote.herokuapp.com/notes')
-      .then(function(notes){
-        console.log(notes);
+      var notesPromise = $http.get('https://meganote.herokuapp.com/notes');
+
+      notesPromise.then(function(res){
+        service.notes = res.data;
       });
+      return notesPromise;
     }
   };
 })();

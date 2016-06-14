@@ -22,7 +22,10 @@
     NotesController.$inject =['$state', '$scope', 'NotesService'];
   function NotesController($state, $scope, NotesService){
       $state.go('notes.form');
-      NotesService.getNotes();
+      NotesService.getNotes()
+        .then(function(){
+          $scope.notes = NotesService.notes;
+        });
 
       $scope.notes = [];
       $scope.note = {title:'', body:''};
@@ -31,7 +34,7 @@
         $scope.note ={title:'', body:''};
       };
       $scope.editNote = function(note){
-
+        $scope.note = note;
       };
     };
 })();
