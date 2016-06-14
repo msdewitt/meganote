@@ -3,6 +3,8 @@
     .module('meganote.notes',['ui.router'])
     .config(notesConfig)
     .controller('NotesController', NotesController);
+
+    notesConfig.$inject = ['$stateProvider'];
   function notesConfig($stateProvider){
       $stateProvider
 
@@ -16,6 +18,8 @@
           templateUrl : 'notes/notes-form.html'
         });
     }
+
+    NotesController.$inject =['$scope'];
   function NotesController($scope){
       $scope.notes = [];
       $scope.note = {title:'', body:''};
