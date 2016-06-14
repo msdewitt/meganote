@@ -4,9 +4,9 @@
     .config(notesConfig)
     .controller('NotesController', NotesController);
 
-    notesConfig.$inject = ['$stateProvider'];
+  notesConfig.$inject = ['$stateProvider'];
   function notesConfig($stateProvider){
-      $stateProvider
+    $stateProvider
 
         .state('notes', {
           url: '/notes',
@@ -17,24 +17,24 @@
           url:'/:noteId', //noteId is a varaiable so this says: .../noteId
           templateUrl : 'notes/notes-form.html'
         });
-    }
+  }
 
-    NotesController.$inject =['$state', '$scope', 'NotesService'];
+  NotesController.$inject =['$state', '$scope', 'NotesService'];
   function NotesController($state, $scope, NotesService){
-      $state.go('notes.form');
-      NotesService.getNotes()
+    $state.go('notes.form');
+    NotesService.getNotes()
         .then(function(){
           $scope.notes = NotesService.notes;
         });
 
-      $scope.notes = [];
-      $scope.note = {title:'', body:''};
-      $scope.save = function(){
-        $scope.notes.push($scope.note);
-        $scope.note ={title:'', body:''};
-      };
-      $scope.editNote = function(note){
-        $scope.note = note;
-      };
+    $scope.notes = [];
+    $scope.note = {title:'', body:''};
+    $scope.save = function(){
+      $scope.notes.push($scope.note);
+      $scope.note ={title:'', body:''};
     };
+    $scope.editNote = function(note){
+      $scope.note = note;
+    };
+  }
 })();
