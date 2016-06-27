@@ -1,11 +1,13 @@
-<div class="containter">
+<div class="container">
   <div class="row">
     <nav class="col-xs-4" id="sidebar">
-      <button class="btn btn-default">New Note</button>
-      <ul id= "notes">
-        <li ng-repeat="note in notes" ng-click="editNote(note)">
-            {{note.title}}
-            {{note.body}}
+      <button class="btn btn-default" ng-click="clearForm()">
+        New Note
+      </button>
+      <ul id="notes">
+        <li ng-repeat="note in notes | orderBy: '-updated_at' track by $index" ng-click="edit(note)">
+          <div class="note-title">{{ note.title }}</div>
+          <div class="note-body">{{ note.body_text }}</div>
         </li>
       </ul>
     </nav>

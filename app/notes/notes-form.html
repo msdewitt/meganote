@@ -1,3 +1,7 @@
+<flash-message>
+
+
+</flash-message>
 <form ng-submit="save()">
   <p>
     <input
@@ -11,14 +15,15 @@
     <textarea
       name="body_html"
       placeholder="Just start typing..."
-      ng-model="note.body"
+      ng-model="note.body_html"
       ></textarea>
   </p>
   <div class="form-actions">
     <input
       type="submit"
       name="commit"
-      value="Save"
+      value="{{ note._id ? 'Update Note' : 'Create Note' }}"
       class="btn btn-default">
+    <a ng-click="delete()" ng-show="note._id">Delete</a>
   </div>
 </form>
